@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="description" content="Shayan Hasanzadeh — Software Engineering, AI and Automation.">
+  <title>Shayan Hasanzadeh | Software & AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d12;
+      --panel: #121620;
+      --border: #252c39;
+      --text: #f1f5f9;
+      --muted: #98a2b3;
+      --accent: #76a9ff;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 28px 18px;
+      background:
+        radial-gradient(ellipse at top, #17243b 0%, var(--bg) 55%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+    }
+
+    main {
+      width: 100%;
+      max-width: 650px;
+    }
+
+    .profile {
+      padding: 36px 26px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(18, 22, 32, 0.92);
+      box-shadow: 0 24px 80px #0005;
+    }
+
+    .avatar {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #496a9f;
+      border-radius: 24px;
+      background: #1a2b46;
+      color: var(--accent);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 6vw, 40px);
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 18px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #151a25;
+      color: var(--text);
+      text-decoration: none;
+      text-align: left;
+      transition: border-color .2s, transform .2s,
+                  background .2s;
+    }
+
+    .link:hover {
+      border-color: var(--accent);
+      background: #1a2231;
+      transform: translateY(-2px);
+    }
+
+    .link-title {
+      display: block;
+      font-weight: 650;
+      margin-bottom: 5px;
+    }
+
+    .link-description {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .arrow {
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 420px) {
+      .profile {
+        padding: 28px 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="profile">
+      <div class="avatar" aria-label="Shayan Hasanzadeh">SH</div>
+
+      <p class="eyebrow">Software Engineering · AI</p>
+
+      <h1>Shayan Hasanzadeh</h1>
+
+      <p class="subtitle">
+        Building real-world software with Python, APIs and databases.
+        Exploring AI and automation, one project at a time.
+      </p>
+
+      <div class="divider"></div>
+
+      <nav class="links" aria-label="Social profiles">
+        <a class="link"
+           href="https://github.com/Shayanhz-Dev"
+           target="_blank" rel="noopener noreferrer">
+          <span>
+            <span class="link-title">GitHub</span>
+            <span class="link-description">Projects, code & experiments</span>
+          </span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="link"
+           href="https://www.linkedin.com/in/shayan-hasanzade-8561a9366/"
+           target="_blank" rel="noopener noreferrer">
+          <span>
+            <span class="link-title">LinkedIn</span>
+            <span class="link-description">Professional profile & networking</span>
+          </span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="link"
+           href="https://x.com/DevShayanhz"
+           target="_blank" rel="noopener noreferrer">
+          <span>
+            <span class="link-title">X / Twitter</span>
+            <span class="link-description">Thoughts, learning & updates</span>
+          </span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </section>
+
+    <footer>
+      Designed and built by Shayan Hasanzadeh
+    </footer>
+  </main>
+</body>
+</html>
