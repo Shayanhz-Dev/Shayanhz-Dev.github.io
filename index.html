@@ -9,201 +9,559 @@
   <title>Shayan Hasanzadeh | Software & AI</title>
 
   <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0d12;
+      --surface: #121620;
+      --surface-hover: #191f2b;
+      --text: #f2f5fa;
+      --muted: #9aa5b5;
+      --accent: #9b8cff;
+      --border: #252c39;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    :root {
-      color-scheme: dark;
-      --bg: #0b0d12;
-      --panel: #121620;
-      --border: #252c39;
-      --text: #f1f5f9;
-      --muted: #98a2b3;
-      --accent: #76a9ff;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 28px 18px;
       background:
-        radial-gradient(ellipse at top, #17243b 0%, var(--bg) 55%);
+        radial-gradient(ellipse at 50% 0%, rgba(116, 93, 255, 0.12), transparent 48%),
+        var(--bg);
       color: var(--text);
-      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .container {
+      width: min(100% - 40px, 920px);
+      margin-inline: auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      font-weight: 750;
+      font-size: 1.05rem;
+      letter-spacing: -0.04em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7dd9a7;
+      box-shadow: 0 0 12px rgba(125, 217, 167, 0.35);
     }
 
     main {
-      width: 100%;
-      max-width: 650px;
+      padding: 76px 0 52px;
     }
 
-    .profile {
-      padding: 36px 26px;
-      text-align: center;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: rgba(18, 22, 32, 0.92);
-      box-shadow: 0 24px 80px #0005;
-    }
-
-    .avatar {
-      width: 82px;
-      height: 82px;
-      margin: 0 auto 22px;
+    .hero {
       display: grid;
-      place-items: center;
-      border: 1px solid #496a9f;
-      border-radius: 24px;
-      background: #1a2b46;
-      color: var(--accent);
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -2px;
+      grid-template-columns: 1fr 150px;
+      align-items: center;
+      gap: 36px;
     }
 
     .eyebrow {
       color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 3px;
       text-transform: uppercase;
+      font-size: 0.76rem;
+      font-weight: 750;
+      letter-spacing: 0.16em;
       margin-bottom: 14px;
     }
 
     h1 {
-      font-size: clamp(28px, 6vw, 40px);
-      letter-spacing: -1.5px;
-      margin-bottom: 12px;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.065em;
+      margin-bottom: 20px;
     }
 
     .subtitle {
       color: var(--muted);
-      line-height: 1.8;
-      font-size: 15px;
-      max-width: 440px;
-      margin: 0 auto;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      max-width: 560px;
     }
 
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 28px 0;
+    .subtitle strong {
+      color: var(--text);
+      font-weight: 600;
     }
 
-    .links {
-      display: grid;
+    .avatar-wrap {
+      justify-self: end;
+    }
+
+    .avatar {
+      display: block;
+      width: 144px;
+      height: 144px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 2px solid #37304f;
+      background: var(--surface);
+      box-shadow: 0 0 50px rgba(155, 140, 255, 0.13);
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
       gap: 12px;
+      margin-top: 32px;
     }
 
-    .link {
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 17px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      font-size: 0.9rem;
+      font-weight: 650;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--surface-hover);
+      border-color: #62568e;
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: #11131a;
+      border-color: var(--text);
+    }
+
+    .button.primary:hover {
+      background: #dcd6ff;
+      border-color: #dcd6ff;
+    }
+
+    section {
+      margin-top: 78px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .section-number {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.1em;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      letter-spacing: -0.035em;
+    }
+
+    .about-text {
+      max-width: 720px;
+      color: var(--muted);
+    }
+
+    .about-text strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(22, 27, 39, 0.94), rgba(16, 19, 27, 0.94));
+      transition: border-color 180ms ease;
+    }
+
+    .card:hover {
+      border-color: #49405f;
+    }
+
+    .card-label {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.73rem;
+      font-weight: 750;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.91rem;
+    }
+
+    .card .project-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .card .project-link:hover {
+      color: var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: #d6dbea;
+      font-size: 0.86rem;
+    }
+
+    .contact-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 17px 18px;
+      gap: 24px;
+      padding: 26px;
       border: 1px solid var(--border);
-      border-radius: 13px;
-      background: #151a25;
-      color: var(--text);
-      text-decoration: none;
-      text-align: left;
-      transition: border-color .2s, transform .2s,
-                  background .2s;
+      border-radius: 20px;
+      background: var(--surface);
     }
 
-    .link:hover {
-      border-color: var(--accent);
-      background: #1a2231;
-      transform: translateY(-2px);
-    }
-
-    .link-title {
-      display: block;
-      font-weight: 650;
-      margin-bottom: 5px;
-    }
-
-    .link-description {
-      display: block;
+    .contact-card p {
+      margin-top: 5px;
       color: var(--muted);
-      font-size: 13px;
-    }
-
-    .arrow {
-      color: var(--accent);
-      font-size: 20px;
+      font-size: 0.92rem;
     }
 
     footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 26px 0 34px;
+      margin-top: 78px;
+      border-top: 1px solid var(--border);
       color: var(--muted);
-      text-align: center;
-      font-size: 12px;
-      margin-top: 24px;
+      font-size: 0.82rem;
     }
 
-    @media (max-width: 420px) {
-      .profile {
-        padding: 28px 17px;
+    footer a {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 32px, 920px);
+      }
+
+      header {
+        padding: 21px 0;
+      }
+
+      .status {
+        font-size: 0.72rem;
+      }
+
+      main {
+        padding-top: 48px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .avatar-wrap {
+        grid-row: 1;
+        justify-self: start;
+      }
+
+      .avatar {
+        width: 112px;
+        height: 112px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        margin-top: 58px;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      footer {
+        flex-direction: column;
+        margin-top: 58px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <section class="profile">
-      <div class="avatar" aria-label="Shayan Hasanzadeh">SH</div>
+  <div class="container">
+    <header>
+      <a class="brand" href="#" aria-label="Home">SH<span>.</span></a>
 
-      <p class="eyebrow">Software Engineering · AI</p>
+      <div class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Software · AI · Automation
+      </div>
+    </header>
 
-      <h1>Shayan Hasanzadeh</h1>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Personal Portfolio</p>
 
-      <p class="subtitle">
-        Building real-world software with Python, APIs and databases.
-        Exploring AI and automation, one project at a time.
-      </p>
+          <h1 id="hero-title">
+            Shayan<br>
+            Hasanzadeh<span style="color: var(--accent)">.</span>
+          </h1>
 
-      <div class="divider"></div>
+          <p class="subtitle">
+            Exploring <strong>Software Engineering, AI and Automation</strong>.
+            Building real-world software with Python, APIs and databases,
+            one project at a time.
+          </p>
 
-      <nav class="links" aria-label="Social profiles">
-        <a class="link"
-           href="https://github.com/Shayanhz-Dev"
-           target="_blank" rel="noopener noreferrer">
-          <span>
-            <span class="link-title">GitHub</span>
-            <span class="link-description">Projects, code & experiments</span>
-          </span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
+          <nav class="socials" aria-label="Social and developer profiles">
+            <a class="button primary"
+               href="https://github.com/Shayanhz-Dev"
+               target="_blank" rel="noopener noreferrer">GitHub ↗</a>
 
-        <a class="link"
-           href="https://www.linkedin.com/in/shayan-hasanzade-8561a9366/"
-           target="_blank" rel="noopener noreferrer">
-          <span>
-            <span class="link-title">LinkedIn</span>
-            <span class="link-description">Professional profile & networking</span>
-          </span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
+            <a class="button"
+               href="https://www.linkedin.com/in/shayan-hasanzade-8561a9366"
+               target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
 
-        <a class="link"
-           href="https://x.com/DevShayanhz"
-           target="_blank" rel="noopener noreferrer">
-          <span>
-            <span class="link-title">X / Twitter</span>
-            <span class="link-description">Thoughts, learning & updates</span>
-          </span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-      </nav>
-    </section>
+            <a class="button"
+               href="https://x.com/DevShayanhz"
+               target="_blank" rel="noopener noreferrer">X ↗</a>
+          </nav>
+        </div>
+
+        <div class="avatar-wrap">
+          <img
+            class="avatar"
+            src="picture.png"
+            alt="Portrait of Shayan Hasanzadeh"
+            width="144"
+            height="144"
+          >
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+          <h2 id="about-title">About Me</h2>
+        </div>
+
+        <p class="about-text">
+          I'm focused on building practical software and exploring how
+          <strong>AI can solve real-world problems</strong>.
+          My interests include backend development, APIs, databases,
+          intelligent automation and reliable software architecture.
+          I believe in learning by building, improving through feedback,
+          and turning ideas into useful products.
+        </p>
+      </section>
+
+      <section id="focus" aria-labelledby="focus-title">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <h2 id="focus-title">Areas of Focus</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <span class="card-label">01 / Engineering</span>
+            <h3>Backend Development</h3>
+            <p>Designing APIs, working with databases, and building maintainable backend systems.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-label">02 / Intelligence</span>
+            <h3>AI & Automation</h3>
+            <p>Exploring intelligent workflows and practical ways to automate repetitive tasks.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-label">03 / Data</span>
+            <h3>Data & Databases</h3>
+            <p>Working with structured data, SQL, data processing, and reliable data models.</p>
+          </article>
+
+          <article class="card">
+            <span class="card-label">04 / Mindset</span>
+            <h3>Building Real Products</h3>
+            <p>Learning through hands-on projects, solving practical problems, and continuously improving.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <span class="section-number">03</span>
+          <h2 id="skills-title">Technologies</h2>
+        </div>
+
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">SQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">Alembic</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Git & GitHub</span>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <span class="section-number">04</span>
+          <h2 id="projects-title">Selected Projects</h2>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <span class="card-label">Python · Telegram</span>
+            <h3>Telegram Pricing Bot</h3>
+            <p>A Telegram bot project focused on product pricing information and workflow automation.</p>
+            <a class="project-link"
+               href="https://github.com/Shayanhz-Dev/Telegram-Pricing-Bot"
+               target="_blank" rel="noopener noreferrer">View repository ↗</a>
+          </article>
+
+          <article class="card">
+            <span class="card-label">FastAPI · Databases</span>
+            <h3>SHZ Engine</h3>
+            <p>A backend project exploring API structure, data access, database integration and authentication.</p>
+            <a class="project-link"
+               href="https://github.com/Shayanhz-Dev/SHZ-Engine"
+               target="_blank" rel="noopener noreferrer">View repository ↗</a>
+          </article>
+
+          <article class="card">
+            <span class="card-label">AI · Automation</span>
+            <h3>AI Sales Automation</h3>
+            <p>An evolving concept for helping small online businesses manage customer conversations and sales workflows.</p>
+            <a class="project-link"
+               href="https://github.com/Shayanhz-Dev"
+               target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
+          </article>
+
+          <article class="card">
+            <span class="card-label">More to come</span>
+            <h3>Future Experiments</h3>
+            <p>New projects, technical experiments and lessons learned will be added here as they develop.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="section-heading">
+          <span class="section-number">05</span>
+          <h2 id="contact-title">Connect</h2>
+        </div>
+
+        <div class="contact-card">
+          <div>
+            <h3>Let's connect.</h3>
+            <p>Explore my projects and connect with me across my professional profiles.</p>
+          </div>
+
+          <a class="button primary"
+             href="https://www.linkedin.com/in/shayan-hasanzade-8561a9366"
+             target="_blank" rel="noopener noreferrer">Find me on LinkedIn ↗</a>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      Designed and built by Shayan Hasanzadeh
+      <span>© 2026 Shayan Hasanzadeh</span>
+      <a href="https://github.com/Shayanhz-Dev">Built with code & curiosity.</a>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
