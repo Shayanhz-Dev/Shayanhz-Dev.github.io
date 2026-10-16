@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b0d12">
-  <meta name="description" content="Shayan Hasanzadeh — Software Engineering, AI and Automation.">
-  <title>Shayan Hasanzadeh | Software & AI</title>
+  <meta name="description" content="Shayan Hasanzadeh — Social and professional links.">
+  <title>Shayan Hasanzadeh | My Links</title>
 
   <style>
     :root {
@@ -24,10 +24,6 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -60,7 +56,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
+      padding: 16px 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -91,14 +87,14 @@
     }
 
     main {
-      padding: 28px 0 36px;
+      padding: 28px 0 32px;
     }
 
     .hero {
       display: grid;
       grid-template-columns: 1fr 150px;
       align-items: center;
-      gap: 36px;
+      gap: 28px;
     }
 
     .eyebrow {
@@ -107,14 +103,14 @@
       font-size: 0.76rem;
       font-weight: 750;
       letter-spacing: 0.16em;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
 
     h1 {
       font-size: clamp(2.4rem, 7vw, 4.2rem);
       line-height: 1.08;
       letter-spacing: -0.065em;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
     .subtitle {
@@ -148,7 +144,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     .button {
@@ -181,51 +177,13 @@
       border-color: #dcd6ff;
     }
 
-    section {
-      margin-top: 42px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 22px;
-    }
-
-    .section-number {
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 750;
-      letter-spacing: 0.1em;
-    }
-
-    h2 {
-      font-size: 1.35rem;
-      letter-spacing: -0.035em;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    .tag {
-      padding: 8px 12px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: var(--surface);
-      color: #d6dbea;
-      font-size: 0.86rem;
-    }
-
     @media (max-width: 600px) {
       .container {
         width: min(100% - 32px, 920px);
       }
 
       header {
-        padding: 16px 0;
+        padding: 14px 0;
       }
 
       .status {
@@ -238,7 +196,7 @@
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
       }
 
       .avatar-wrap {
@@ -251,20 +209,17 @@
         height: 112px;
       }
 
-      .section-heading {
-        margin-bottom: 18px;
+      .socials {
+        gap: 9px;
+        margin-top: 18px;
       }
 
-      section {
-        margin-top: 36px;
+      .button {
+        padding: 10px 14px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
       *,
       *::before,
       *::after {
@@ -288,7 +243,7 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <p class="eyebrow">Personal Portfolio</p>
+          <p class="eyebrow">My Links</p>
 
           <h1 id="hero-title">
             Shayan<br>
@@ -296,12 +251,10 @@
           </h1>
 
           <p class="subtitle">
-            Exploring <strong>Software Engineering, AI and Automation</strong>.
-            Building real-world software with Python, APIs and databases,
-            one project at a time.
+            Software Engineering · AI · Automation
           </p>
 
-          <nav class="socials" aria-label="Social and developer profiles">
+          <nav class="socials" aria-label="Social and professional links">
             <a class="button primary"
                href="https://github.com/Shayanhz-Dev"
                target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -324,26 +277,6 @@
             width="144"
             height="144"
           >
-        </div>
-      </section>
-
-      <section id="skills" aria-labelledby="skills-title">
-        <div class="section-heading">
-          <span class="section-number">01</span>
-          <h2 id="skills-title">Technologies</h2>
-        </div>
-
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">SQL</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">SQLAlchemy</span>
-          <span class="tag">Alembic</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Git & GitHub</span>
         </div>
       </section>
     </main>
