@@ -53,6 +53,7 @@
     .container {
       width: min(100% - 40px, 960px);
       min-height: 100vh;
+      min-height: 100dvh;
       margin-inline: auto;
       display: flex;
       flex-direction: column;
@@ -192,27 +193,47 @@
       border-color: #dcd6ff;
     }
 
+    /* Tablet */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr) 200px;
+        gap: 24px;
+      }
+
+      .avatar {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    /* Phone */
     @media (max-width: 600px) {
       .container {
         width: min(100% - 32px, 960px);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
       }
 
       header {
         padding: 14px 0;
+        gap: 12px;
       }
 
       .status {
         font-size: 0.72rem;
         gap: 7px;
+        white-space: nowrap;
       }
 
       main {
-        padding: 32px 0;
+        justify-content: flex-start;
+        padding: 36px 0 calc(40px + env(safe-area-inset-bottom));
       }
 
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
+        align-items: start;
+        gap: 22px;
       }
 
       .avatar-wrap {
@@ -221,17 +242,53 @@
       }
 
       .avatar {
-        width: 150px;
-        height: 150px;
+        width: 132px;
+        height: 132px;
+      }
+
+      .eyebrow {
+        font-size: 0.68rem;
+      }
+
+      .subtitle {
+        font-size: 0.96rem;
+        line-height: 1.65;
       }
 
       .socials {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 9px;
-        margin-top: 18px;
+        margin-top: 26px;
       }
 
       .button {
-        padding: 10px 14px;
+        min-height: 46px;
+        padding: 10px 8px;
+        font-size: 0.82rem;
+      }
+    }
+
+    /* Very small phones */
+    @media (max-width: 360px) {
+      .avatar {
+        width: 112px;
+        height: 112px;
+      }
+
+      .status {
+        font-size: 0.68rem;
+      }
+
+      .socials {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Touch devices: no sticky hover lift */
+    @media (hover: none) {
+      .button:hover {
+        transform: none;
       }
     }
 
